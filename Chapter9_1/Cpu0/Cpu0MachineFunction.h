@@ -31,7 +31,14 @@ namespace llvm {
 /// Cpu0 target-specific information for each MachineFunction.
 class Cpu0FunctionInfo : public MachineFunctionInfo {
 public:
-Cpu0FunctionInfo(const Function &F, const TargetSubtargetInfo *STI){}
+Cpu0FunctionInfo(const Function &F, const TargetSubtargetInfo *STI)
+: VarArgsFrameIndex(0), 
+    SRetReturnReg(0), CallsEhReturn(false), CallsEhDwarf(false),
+    GlobalBaseReg(0),
+    InArgFIRange(std::make_pair(-1, 0)),
+    OutArgFIRange(std::make_pair(-1, 0)), GPFI(0), DynAllocFI(0),
+    EmitNOAT(false),
+    MaxCallFrameSize(0){}
 
 MachineFunctionInfo *
 clone(BumpPtrAllocator &Allocator, MachineFunction &DestMF,

@@ -24,7 +24,7 @@ EnableCpu0S32Calls("cpu0-s32-calls", cl::Hidden,
                     "), cl::init(false));
 
 namespace {
-static const MCPhysReg O32IntRegs[4] = {Cpu0::A0, Cpu0::A1};
+static const MCPhysReg O32IntRegs[2] = {Cpu0::A0, Cpu0::A1};
 static const MCPhysReg S32IntRegs = {};
 }
 

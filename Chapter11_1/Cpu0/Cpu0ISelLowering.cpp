@@ -1105,8 +1105,9 @@ Cpu0TargetLowering::LowerReturn(SDValue Chain,
     RetOps.push_back(Flag);
 
   // Return on Cpu0 is always a "ret $lr"
-  return DAG.getNode(Cpu0ISD::Ret, DL, MVT::Other,
-    Chain, DAG.getRegister(Cpu0::LR, MVT::i32));
+  return DAG.getNode(Cpu0ISD::Ret, DL, MVT::Other, RetOps);
+  //return DAG.getNode(Cpu0ISD::Ret, DL, MVT::Other,
+  //  Chain, DAG.getRegister(Cpu0::LR, MVT::i32));
 }
 
 bool
